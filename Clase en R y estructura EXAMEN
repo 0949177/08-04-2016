@@ -1,0 +1,47 @@
+#####Examen##
+#1)Generar uds un script
+#2) Explicar las lineas de un script o realizar comentarios sobre el mismo
+#### Estructura del examen##
+#1) Manejo de bases de datos en R
+  #1)Exportar Bases, etiquetar, generar una base 
+### de datos, recodificar, seleccionar casos, Grafica
+### 2) Series de tiempo en R
+### Declarar una ST, dividir ST, Graficar ST
+### Interpretar graficas con estacionalidad
+### tendencia y ciclo
+#### 2.1) Como determinar estacionalidad en una ST
+### con la funcion de autocorrelacion, calculo de 
+### correlacion y covarianza ....
+################Examen Lunes 18################################################
+################ REPASO #######################################################
+
+######Funcion de autocorrelacion!!!
+#### La autocorrelacion mide la correlacion entre dos variables
+### Separadas por k periodos
+### Propiedades de la autocorrelacion
+## Ro=1
+#-1<=RO<=1
+# sIMETRIA ROJ=ROJ-1
+install.packages("fpp")
+require(fpp) ##cada vez que habramos sesion la necesitamos mandar llamar
+Acf(beer) ##Funcion para conocer la autocorrelacion
+##Eje X rango en el que segun nuestros datos es aceptable o no
+xx<-Acf(beer,main="ACF of quarterly ber production")
+names(xx)
+xx$acf
+##La grafica que 
+
+lag.plot()
+#### R4 superior a la de los otros retardos
+# Esto es debido a el patron estacional en los datos
+
+#####NETFLIX######
+net<-read.csv("C:\\Users\\SALA-13\\Desktop\\netflix acciones.csv",header = TRUE)
+net1<-ts(net[,5],start = 2015,frequency = 12)
+plot(net1)
+Acf(net1)
+xx<-Acf(net1,main="Acf of quarterly Netflix ")
+xx$acf ###
+####Si hay muchos datos fuera de las bandas no se podriam hacer los pronosticos
+
+
